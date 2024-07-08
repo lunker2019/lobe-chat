@@ -1,38 +1,38 @@
-name: Upstream Sync
+name: 
 
 permissions:
-  contents: write
-  issues: write
-  actions: write
+  contents: 
+  issues: 
+  actions: 
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # every 6 hours
+    - cron: '0 */1 * * *' # every 6 hours
   workflow_dispatch:
 
 jobs:
   sync_latest_from_upstream:
-    name: Sync latest commits from upstream repo
-    runs-on: ubuntu-latest
-    if: ${{ github.event.repository.fork }}
+    name: 
+    runs-on: 
+    if: {{}}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: 
 
-      - name: Clean issue notice
-        uses: actions-cool/issues-helper@v3
+      - name: 
+        uses: 
         with:
           actions: 'close-issues'
           labels: '🚨 Sync Fail'
 
-      - name: Sync upstream changes
-        id: sync
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+      - name: 
+        id: 
+        uses: 
         with:
-          upstream_sync_repo: lobehub/lobe-chat
-          upstream_sync_branch: main
-          target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, no need to set
+          upstream_sync_repo: 
+          upstream_sync_branch: 
+          target_sync_branch: 
+          target_repo_token: {{}} # automatically generated, no need to set
           test_mode: false
 
       - name: Sync check
